@@ -30,6 +30,18 @@
       <version>${project.parent.version}</version>
     </dependency>
     <dependency>
+      <groupId>io.openlineage</groupId>
+      <artifactId>spark-interfaces</artifactId>
+      <version>1.14.0-SNAPSHOT</version>
+<!--      <exclusions>-->
+<!--        <exclusion>-->
+<!--          <groupId>io.openlineage</groupId>-->
+<!--          <artifactId>openlineage-java</artifactId>-->
+<!--        </exclusion>-->
+<!--      </exclusions>-->
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
       <scope>provided</scope>
@@ -37,6 +49,9 @@
     <dependency>
       <groupId>io.openlineage</groupId>
       <artifactId>openlineage-spark_${scala.binary.version}</artifactId>
+<!--      <version>${openlineage-spark.version}</version>-->
+      <scope>test</scope>
+      <version>1.14.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
