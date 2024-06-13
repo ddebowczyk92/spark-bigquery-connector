@@ -66,7 +66,7 @@
         <guava.version>33.2.0-jre</guava.version>
         <jackson.version>2.17.1</jackson.version>
         <netty.version>4.1.109.Final</netty.version>
-        <openlineage-spark.version>1.16.0-SNAPSHOT</openlineage-spark.version>
+        <openlineage-spark.version>1.17.0-SNAPSHOT</openlineage-spark.version>
         <opentelemetry.version>1.37.0</opentelemetry.version>
         <paranamer.version>2.8</paranamer.version>
         <!-- Don't upgrade protobuf until bigquerystorage is compatible with 4.x version of proto.
@@ -316,7 +316,7 @@
             <dependency>
                 <groupId>io.openlineage</groupId>
                 <artifactId>spark-interfaces-shaded</artifactId>
-                <version>1.16.0-SNAPSHOT</version>
+                <version>1.17.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.conscrypt</groupId>
@@ -718,7 +718,7 @@
                             <shadedPattern>com.google.cloud.spark.bigquery.repackaged.org.xerial.snappy</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>io.openlineage</pattern>
+                            <pattern>io.openlineage.shaded</pattern>
                             <shadedPattern>com.google.cloud.spark.bigquery.repackaged.io.openlineage</shadedPattern>
                         </relocation>
                         <relocation>
@@ -811,6 +811,7 @@
                             <includes>
                                 <include>**/*IntegrationTest.java</include>
                             </includes>
+                            <excludes></excludes>
                         </configuration>
                         <executions>
                             <execution>

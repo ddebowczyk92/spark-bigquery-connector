@@ -1,6 +1,6 @@
-package com.google.cloud.spark.bigquery.v2;
+package com.google.cloud.spark.bigquery;
 
-import io.openlineage.spark.extension.v1.LineageExtensionProvider;
+import io.openlineage.unshaded.spark.extension.v1.LineageExtensionProvider;
 
 public class TestSparkLineageProvider implements LineageExtensionProvider {
   @Override
