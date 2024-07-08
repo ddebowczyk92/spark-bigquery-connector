@@ -17,6 +17,7 @@ package com.google.cloud.spark.bigquery.integration;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import com.google.cloud.spark.bigquery.TestSparkLineageProvider;
 import com.google.cloud.spark.bigquery.integration.SparkBigQueryIntegrationTestBase.TestDataset;
 import java.io.File;
 import java.util.ArrayList;
@@ -68,6 +69,9 @@ public class OpenLineageIntegrationTestBase {
               .config("spark.default.parallelism", 20)
               .config("spark.extraListeners", "io.openlineage.spark.agent.OpenLineageSparkListener")
               .config("spark.openlineage.transport.type", "file")
+              .config(
+                  "spark.openlineage.testExtensionProvider",
+                  TestSparkLineageProvider.class.getCanonicalName())
               .config("spark.openlineage.transport.location", lineageFile.getAbsolutePath())
               .getOrCreate();
       spark.sparkContext().setLogLevel("WARN");

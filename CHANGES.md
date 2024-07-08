@@ -2,7 +2,15 @@
 
 ## Next
 
+* Issue #1043 : Fix Indirect write drops policy tags
+* Issue #1244 : Set schema Field Nullables as per ALLOW_FIELD_RELAXATION
+
+## 0.39.1 - 2024-06-24
+
 * PR #1236: Fixing unshaded artifacts, added shading verification
+* PR #1239: Allow GCS bucket to be supplied including a scheme. Thanks @tom-s-powell !
+* Issue #1126: Fixing Kryo serialization issues
+* Issue #1223: Fix gRPC status creates 'object not serializable' errors
 
 ## 0.39.0 - 2024-05-21
 
