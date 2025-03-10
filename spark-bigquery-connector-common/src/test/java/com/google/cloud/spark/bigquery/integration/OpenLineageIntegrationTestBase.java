@@ -93,10 +93,17 @@ public class OpenLineageIntegrationTestBase {
   }
 
   @Test
-  public void testLineageEvent() throws Exception {
+  public void testLineageEventWithQueryInput() throws Exception {
     String fullTableName = testDataset.toString() + "." + testTable;
     Dataset<Row> readDF =
-        spark.read().format("bigquery").option("table", TestConstants.SHAKESPEARE_TABLE).load();
+        spark
+            .read()
+            .format("bigquery")
+            .option("viewsEnabled", true)
+            .option("materializationDataset", testDataset.toString())
+            .option("query", "SELECT * FROM `bigquery-public-data.samples.shakespeare`")
+            .load();
+
     readDF.createOrReplaceTempView("words");
     Dataset<Row> writeDF =
         spark.sql("SELECT word, SUM(word_count) AS word_count FROM words GROUP BY word");
